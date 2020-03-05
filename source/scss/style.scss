@@ -1,0 +1,28 @@
+.alphakat_generator {
+	position: relative;
+
+	&.empty {
+		#create {
+			display: none;
+		}
+	}
+
+	.lightbox {
+		background: #fff;
+		display: none;
+		position: absolute;
+		top: 50px;
+		bottom: 50px;
+		left: 20vw;
+		right: 20vw;
+		z-index: 50;
+
+		&.open {
+			display: block;
+		}
+
+		.options {
+			overflow-y: auto;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "alphakat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "start": "gulp sassy && gulp watch",
+    "build": "gulp sassy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aimhigherweb/alphakat-generator.git"
+  },
+  "author": "Amy Kapernick <amy@aimhigherweb.design> (https://amyskapers.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aimhigherweb/alphakat-generator/issues"
+  },
+  "homepage": "https://github.com/aimhigherweb/alphakat-generator#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
