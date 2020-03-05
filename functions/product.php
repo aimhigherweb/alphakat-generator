@@ -31,42 +31,8 @@
 			$term = '15';
 			$taxonomy = 'product_cat';
 			wp_set_post_terms($post_id, $term, $taxonomy);
-			
+			$price = get_field(count($letters), 'option');
 
-			switch(count($letters)) {
-				case 1:
-				case 2:
-				case 3:
-					$price = the_field('3', 'option');
-				break;
-				case 4:
-					$price = get_option('font_price_2');
-				break;
-				case 5:
-					$price = get_option('font_price_3');
-				break;
-				case 6:
-					$price = get_option('font_price_4');
-				break;
-				case 7:
-					$price = get_option('font_price_5');
-				break;
-				case 8:
-					$price = get_option('font_price_6');
-				break;
-				case 9:
-					$price = get_option('font_price_7');
-				break;
-			}
-
-			echo '<br/>price';
-			echo $price;
-			echo '<br/>letters';
-			echo count($letters);
-			echo '<br/>post letters';
-			echo count($_POST['letters']);
-			echo '<br/>dump letters';
-			var_dump($letters);
 
 
 			update_post_meta($post_id, '_price', $price);
@@ -102,8 +68,8 @@
 			update_post_meta($post_id, '_thumbnail_id', '');
 
 			$permalink = get_permalink($post_id);
-			// wp_redirect($permalink);
-			// exit;
+			wp_redirect('/?add-to-cart=' . $post_id);
+			exit;
 		}
 	}
 
