@@ -1,9 +1,136 @@
+$navy: #1C3073;
+
 .alphakat_generator {
+	background: url('../background.png');
+	padding: 50px;
 	position: relative;
+	margin-left: -305px;
+	width: 100vw;
 
 	&.empty {
 		#create {
 			display: none;
+		}
+	}
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1000px;
+	}
+
+	legend {
+		font-size: 5em;
+		line-height: 1.2;
+		text-align: center;
+	}
+
+	button {
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+
+	fieldset {
+		&.letters {
+			background: #fff;
+			padding: 50px;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+
+			button {
+				cursor: pointer;
+
+				&[data-index] {
+					margin: 5px;
+					line-height: 1;
+				}
+
+				img {
+					inset: 10px;
+					height: 100px;
+					width: 100px;
+				}
+			}
+
+			&.navy {
+				background: $navy;
+			}
+
+			&.black {
+				background: #000;
+			}
+		}
+
+		&.boards, &.colour {
+			padding: 50px;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+	}
+
+	#design {
+		input {
+			&[type="text"] {
+				border: 1px solid #fff;
+				flex-grow: 1;
+				font-size: 2em;
+				letter-spacing: 0.2em;
+				line-height: 1.5;
+				padding: 20px 50px;
+				text-transform: uppercase;
+			}
+
+			&[type="submit"] {
+				background:	#fff;
+				border: none;
+				cursor: pointer;
+				font-weight: bold;
+				padding: 20px 50px;
+
+				&:active, &:hover, &:focus {
+					background: #005e62;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	#create {
+		margin-top: 50px;
+
+		input {
+			&[type="radio"] {
+				display: none;
+
+				& + label {
+					cursor: pointer;
+					margin: 0 10px;
+					padding: 10px 30px;
+					text-transform: uppercase;
+				}
+			}
+		}
+
+		label {
+			&[for="navy"] {
+				background: $navy;
+				color: #fff;
+			}
+
+			&[for="black"] {
+				background: #000;
+				color: #fff;
+			}
+
+			&[for="white"] {
+				background: #fff;
+			}
 		}
 	}
 

@@ -79,30 +79,27 @@ $posts = get_posts(array(
 		</fieldset>
 
 		<fieldset class="boards">
-			<label for="board-white">
-				<span>White Board</span>
-				<input type="radio" name="board" id="board-white" value="white" checked />
+			<input type="radio" name="board" id="white" value="white" checked />
+			<label for="white" data-colour="white">
+				White Board
 			</label>
 
-			<label for="board-black">
-				<span>Black Board</span>
-				<input type="radio" name="board" id="board-black" value="black" />
+			<input type="radio" name="board" id="black" value="black" />
+			<label for="black" data-colour="black">
+				Black Board
 			</label>
-
-			<label for="board-navy">
-				<span>Navy Board</span>
-				<input type="radio" name="board" id="board-navy" value="navy" />
+			
+			<input type="radio" name="board" id="navy" value="navy" />
+			<label for="navy" data-colour="navy">
+				Navy Board
 			</label>
+			
 		</fieldset>
 
 		<fieldset class="colour">
-			<label for="colour">
-				<span>Colour</span>
-				<input type="radio" name="colour" id="colour" value="colour" checked />
-			</label>
+			<input type="checkbox" name="bw" id="bw" value="bw" />
 			<label for="bw">
-				<span>Black and White</span>
-				<input type="radio" name="colour" id="bw" value="bw" />
+				Black and White
 			</label>
 		</fieldset>
 

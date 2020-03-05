@@ -1,7 +1,84 @@
 .alphakat_generator {
-  position: relative; }
+  background: url("../background.png");
+  padding: 50px;
+  position: relative;
+  margin-left: -305px;
+  width: 100vw; }
   .alphakat_generator.empty #create {
     display: none; }
+  .alphakat_generator form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px; }
+  .alphakat_generator legend {
+    font-size: 5em;
+    line-height: 1.2;
+    text-align: center; }
+  .alphakat_generator button {
+    background: transparent;
+    border: none;
+    padding: 0; }
+  .alphakat_generator fieldset.letters {
+    background: #fff;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%; }
+    .alphakat_generator fieldset.letters button {
+      cursor: pointer; }
+      .alphakat_generator fieldset.letters button[data-index] {
+        margin: 5px;
+        line-height: 1; }
+      .alphakat_generator fieldset.letters button img {
+        inset: 10px;
+        height: 100px;
+        width: 100px; }
+    .alphakat_generator fieldset.letters.navy {
+      background: #1C3073; }
+    .alphakat_generator fieldset.letters.black {
+      background: #000; }
+  .alphakat_generator fieldset.boards, .alphakat_generator fieldset.colour {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%; }
+  .alphakat_generator #design input[type="text"] {
+    border: 1px solid #fff;
+    flex-grow: 1;
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    padding: 20px 50px;
+    text-transform: uppercase; }
+  .alphakat_generator #design input[type="submit"] {
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 20px 50px; }
+    .alphakat_generator #design input[type="submit"]:active, .alphakat_generator #design input[type="submit"]:hover, .alphakat_generator #design input[type="submit"]:focus {
+      background: #005e62;
+      color: #fff; }
+  .alphakat_generator #create {
+    margin-top: 50px; }
+    .alphakat_generator #create input[type="radio"] {
+      display: none; }
+      .alphakat_generator #create input[type="radio"] + label {
+        cursor: pointer;
+        margin: 0 10px;
+        padding: 10px 30px;
+        text-transform: uppercase; }
+    .alphakat_generator #create label[for="navy"] {
+      background: #1C3073;
+      color: #fff; }
+    .alphakat_generator #create label[for="black"] {
+      background: #000;
+      color: #fff; }
+    .alphakat_generator #create label[for="white"] {
+      background: #fff; }
   .alphakat_generator .lightbox {
     background: #fff;
     display: none;
