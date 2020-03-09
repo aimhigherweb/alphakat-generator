@@ -1,10 +1,18 @@
+:root {
+  --primary: #FAA862;
+  --secondary: #005e62;
+  --font_feature: 'Rhesmanisa',Helvetica, Arial, Lucida, sans-serif;
+  --font_main: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+  --module_background: url('../background.png'); }
+
 .alphakat_generator {
-  background: url("../background.png");
+  background: var(--module_background);
+  font-family: var(--font_main);
   padding: 50px;
   position: relative;
   margin-left: -305px;
   width: 100vw; }
-  .alphakat_generator.empty #create {
+  .alphakat_generator.empty #design {
     display: none; }
   .alphakat_generator form {
     display: flex;
@@ -14,13 +22,44 @@
     width: 100%;
     max-width: 1000px; }
   .alphakat_generator legend {
+    font-family: var(--font_feature);
     font-size: 5em;
     line-height: 1.2;
-    text-align: center; }
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%; }
   .alphakat_generator button {
     background: transparent;
     border: none;
     padding: 0; }
+  .alphakat_generator input[type="radio"] {
+    display: none; }
+    .alphakat_generator input[type="radio"] + label.radio {
+      display: flex;
+      font-size: 1.5em;
+      line-height: 1;
+      margin: 0 10px;
+      padding: 0;
+      position: relative; }
+      .alphakat_generator input[type="radio"] + label.radio:before, .alphakat_generator input[type="radio"] + label.radio:after {
+        border-radius: 50%;
+        display: inline-block; }
+      .alphakat_generator input[type="radio"] + label.radio:before {
+        background: #fff;
+        border: 1px solid black;
+        content: '';
+        height: 1em;
+        margin-right: 1ch;
+        width: 1em; }
+      .alphakat_generator input[type="radio"] + label.radio:after {
+        background: var(--primary);
+        top: calc((0.1 * 1em) + 1px);
+        left: calc((0.1 * 1em) + 1px);
+        height: 0.8em;
+        position: absolute;
+        width: 0.8em; }
+    .alphakat_generator input[type="radio"]:checked + label.radio:after {
+      content: ''; }
   .alphakat_generator fieldset.letters {
     background: #fff;
     padding: 50px;
@@ -40,12 +79,14 @@
       background: #1C3073; }
     .alphakat_generator fieldset.letters.black {
       background: #000; }
+    .alphakat_generator fieldset.letters.bw img {
+      filter: grayscale(100); }
   .alphakat_generator fieldset.boards, .alphakat_generator fieldset.colour {
     padding: 50px;
     display: flex;
     justify-content: center;
     width: 100%; }
-  .alphakat_generator #design input[type="text"] {
+  .alphakat_generator #create input[type="text"] {
     border: 1px solid #fff;
     flex-grow: 1;
     font-size: 2em;
@@ -53,32 +94,44 @@
     line-height: 1.5;
     padding: 20px 50px;
     text-transform: uppercase; }
-  .alphakat_generator #design input[type="submit"] {
+  .alphakat_generator #create input[type="submit"] {
     background: #fff;
     border: none;
     cursor: pointer;
     font-weight: bold;
     padding: 20px 50px; }
-    .alphakat_generator #design input[type="submit"]:active, .alphakat_generator #design input[type="submit"]:hover, .alphakat_generator #design input[type="submit"]:focus {
-      background: #005e62;
+    .alphakat_generator #create input[type="submit"]:active, .alphakat_generator #create input[type="submit"]:hover, .alphakat_generator #create input[type="submit"]:focus {
+      background: var(--secondary);
       color: #fff; }
-  .alphakat_generator #create {
+  .alphakat_generator #design {
     margin-top: 50px; }
-    .alphakat_generator #create input[type="radio"] {
-      display: none; }
-      .alphakat_generator #create input[type="radio"] + label {
-        cursor: pointer;
-        margin: 0 10px;
-        padding: 10px 30px;
-        text-transform: uppercase; }
-    .alphakat_generator #create label[for="navy"] {
+    .alphakat_generator #design label[for="navy"] {
       background: #1C3073;
       color: #fff; }
-    .alphakat_generator #create label[for="black"] {
+    .alphakat_generator #design label[for="black"] {
       background: #000;
       color: #fff; }
-    .alphakat_generator #create label[for="white"] {
+    .alphakat_generator #design label[for="white"] {
       background: #fff; }
+    .alphakat_generator #design .instruct {
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase; }
+    .alphakat_generator #design input[type="submit"] {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      font-size: 1.5em;
+      padding: 0.5em 2em;
+      text-transform: uppercase; }
+  .alphakat_generator .boards input[type="radio"], .alphakat_generator .boards input input[type="checkbox"] {
+    display: none; }
+    .alphakat_generator .boards input[type="radio"] + label, .alphakat_generator .boards input input[type="checkbox"] + label {
+      cursor: pointer;
+      margin: 0 10px;
+      padding: 10px 30px;
+      text-transform: uppercase; }
   .alphakat_generator .lightbox {
     background: #fff;
     display: none;

@@ -16,20 +16,34 @@ const closeLightbox = (letter) => {
 }
 
 window.onload = () => {
+	const canvas = document.querySelector('.alphakat_generator .letters')
 	document.querySelectorAll('.boards label').forEach(board => {
 		board.addEventListener('click', () => {
-			document.querySelector('.alphakat_generator .letters').classList.remove('navy').remove('black').remove('white')
+			if(canvas.classList.contains('navy')) {
+				canvas.classList.remove('navy')
+			}
+			
+			if(canvas.classList.contains('black')) {
+				canvas.classList.remove('black')
+			}
+			if(canvas.classList.contains('white')) {
+				canvas.classList.remove('white')
+			}
 
 			document.querySelector('.alphakat_generator .letters').classList.add(board.getAttribute('data-colour'))
 		})
 	})
 
-	document.querySelector('.colour label').addEventListener('click', (e) => {
-		if(!document.querySelector('.colour input').checked) {
-			document.querySelector('.alphakat_generator .letters').classList.add('bw')
-		}
-		else {
-			document.querySelector('.alphakat_generator .letters').classList.remove('bw')
-		}
+	document.querySelectorAll('.colour label').forEach(opt => {
+		opt.addEventListener('click', () => {
+			if(opt.htmlFor == 'bw') {
+				if(!canvas.classList.contains('bw')) {
+					canvas.classList.add('bw')
+				}
+			}
+			else {
+				canvas.classList.remove('bw')
+			}
+		})
 	})
 }

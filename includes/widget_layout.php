@@ -24,7 +24,7 @@ $posts = get_posts(array(
 
 <div class="alphakat_generator <?php echo $classes; ?>">
 
-	<form action="/#design" method="post" id="design">
+	<form action="/#create" method="post" id="create">
 		<legend>Create Your Own Art</legend>
 
 		<input id="text" type="text" name="text" maxlength="9" value="<?php echo $word; ?>" />
@@ -32,7 +32,7 @@ $posts = get_posts(array(
 		<input type="submit" value="Go">
 	</form>
 
-	<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" id="create" class="product-form">
+	<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" id="design" class="product-form">
 		<input type="hidden" name="action" value="add_art" />
 
 		<input type="hidden" name="text" maxlength="9" value="<?php echo $word; ?>" />
@@ -96,10 +96,16 @@ $posts = get_posts(array(
 			
 		</fieldset>
 
+		<p class="instruct">Click on a letter to change it</p>
+
 		<fieldset class="colour">
-			<input type="checkbox" name="bw" id="bw" value="bw" />
-			<label for="bw">
+			<input type="radio" name="bw" id="bw" value="bw" />
+			<label class="radio" for="bw">
 				Black and White
+			</label>
+			<input type="radio" name="bw" id="colour" value="colour" checked />
+			<label class="radio" for="colour">
+				Colour
 			</label>
 		</fieldset>
 

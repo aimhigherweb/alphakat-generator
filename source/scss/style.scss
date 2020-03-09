@@ -1,14 +1,15 @@
-$navy: #1C3073;
+@import './variables.scss';
 
 .alphakat_generator {
-	background: url('../background.png');
+	background: var(--module_background);
+	font-family: var(--font_main);
 	padding: 50px;
 	position: relative;
 	margin-left: -305px;
 	width: 100vw;
 
 	&.empty {
-		#create {
+		#design {
 			display: none;
 		}
 	}
@@ -23,15 +24,70 @@ $navy: #1C3073;
 	}
 
 	legend {
+		font-family: var(--font_feature);
 		font-size: 5em;
 		line-height: 1.2;
+		margin-bottom: 50px;
 		text-align: center;
+		width: 100%;
 	}
 
 	button {
 		background: transparent;
 		border: none;
 		padding: 0;
+	}
+
+	input {
+		&[type="radio"] {
+			display: none;
+
+			& + label {
+				&.radio {
+					$size: 1em;
+
+					display: flex;
+					font-size: 1.5em;
+					line-height: 1;
+					margin: 0 10px;
+					padding: 0;
+					position: relative;
+
+					&:before, &:after {
+						border-radius: 50%;
+						display: inline-block;
+					}
+
+					&:before {
+						background: #fff;
+						border: 1px solid black;
+						content: '';
+						height: $size;
+						margin-right: 1ch;
+						width: $size;
+					}
+
+					&:after {
+						background: var(--primary);
+						top: calc((0.1 * #{$size}) + 1px);
+						left: calc((0.1 * #{$size}) + 1px);
+						height: 0.8 * $size;
+						position: absolute;
+						width: 0.8 * $size;
+					}
+				}
+			}
+
+			&:checked {
+				& + label {
+					&.radio {
+						&:after {
+							content: '';
+						}
+					}
+				}
+			}
+		}
 	}
 
 	fieldset {
@@ -64,6 +120,12 @@ $navy: #1C3073;
 			&.black {
 				background: #000;
 			}
+
+			&.bw {
+				img {
+					filter: grayscale(100);
+				}
+			}
 		}
 
 		&.boards, &.colour {
@@ -74,7 +136,7 @@ $navy: #1C3073;
 		}
 	}
 
-	#design {
+	#create {
 		input {
 			&[type="text"] {
 				border: 1px solid #fff;
@@ -94,28 +156,15 @@ $navy: #1C3073;
 				padding: 20px 50px;
 
 				&:active, &:hover, &:focus {
-					background: #005e62;
+					background:var(--secondary);
 					color: #fff;
 				}
 			}
 		}
 	}
 
-	#create {
+	#design {
 		margin-top: 50px;
-
-		input {
-			&[type="radio"] {
-				display: none;
-
-				& + label {
-					cursor: pointer;
-					margin: 0 10px;
-					padding: 10px 30px;
-					text-transform: uppercase;
-				}
-			}
-		}
 
 		label {
 			&[for="navy"] {
@@ -130,6 +179,37 @@ $navy: #1C3073;
 
 			&[for="white"] {
 				background: #fff;
+			}
+		}
+
+		.instruct {
+			font-size: 2em;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		input[type="submit"] {
+			background: var(--primary);
+			border: none;
+			color: #fff;
+			font-size: 1.5em;
+			padding: 0.5em 2em;
+			text-transform: uppercase;
+		}
+	}
+
+	.boards {
+		input {
+			&[type="radio"], input[type="checkbox"] {
+				display: none;
+
+				& + label {
+					cursor: pointer;
+					margin: 0 10px;
+					padding: 10px 30px;
+					text-transform: uppercase;
+				}
 			}
 		}
 	}
