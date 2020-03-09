@@ -68,7 +68,7 @@
 			update_post_meta($post_id, '_thumbnail_id', '');
 
 			$permalink = get_permalink($post_id);
-			wp_redirect('/?add-to-cart=' . $post_id);
+			wp_redirect('/cart/?add-to-cart=' . $post_id);
 			exit;
 		}
 	}
