@@ -8,34 +8,20 @@
   require_once(__DIR__ . '/functions/product.php');
   require_once(__DIR__ . '/functions/product_details.php');
   require_once(__DIR__ . '/functions/prices.php');
+  require_once(__DIR__ . '/functions/customise.php');
 
-  // Register and load widget
-	function alphakat_load_widget() {
-		register_widget('alphakat_creator');
-	}
-	add_action('widgets_init', 'alphakat_load_widget');
-	
-// Create the Widget
-	class alphakat_creator extends WP_Widget {
-		function __construct() {
-			parent::__construct(
-				'alphakat_widget',
-				'Alphakat Art Creator'
-			);
+  //Create Shortcode
+  function alphakat_shortcode() {
+	ob_start();
 
-			add_action('widgets_init', function() {
-				register_widget('alphakat_creator');
-			});
-		}
+	include( plugin_dir_path( __FILE__ ) . 'includes/widget_layout.php');
 
-		public $args = array(
-			'before_title' => ''
-		);
+	$content = ob_get_clean();
 
-		public function widget($args, $instance) {
-			include( plugin_dir_path( __FILE__ ) . 'includes/widget_layout.php');
-		}
-	}
+	return $content;
+  }
+
+  add_shortcode('alphakat_generator', 'alphakat_shortcode');
 
 // Add scripts
 	function add_scripts() {

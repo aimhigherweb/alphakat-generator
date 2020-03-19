@@ -20,3 +20,8 @@ wp-content/plugins/hello.php
 node_modules/
 
 blocks/build
+dist/
+
+styles/style.css
+
+alphakat.zip

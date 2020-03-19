@@ -18,26 +18,26 @@ $posts = get_posts(array(
 	'orderby' => 'post_name__in'
 ));
 
-// var_dump($posts)
-
 ?>
 
 <div class="alphakat_generator <?php echo $classes; ?>">
 
-	<form action="/#create" method="post" id="create">
+	<form action="/your-design#create" method="post" id="create">
 		<legend>Create Your Own Art</legend>
 
 		<input id="text" type="text" name="text" maxlength="9" value="<?php echo $word; ?>" />
 
-		<input type="submit" value="Go">
+		<input type="submit" value="Go" />
 	</form>
 
-	<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" id="design" class="product-form">
+<?php if(strpos($_SERVER['REQUEST_URI'], 'your-design')): ?>
+
+<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" id="design" class="product-form">
 		<input type="hidden" name="action" value="add_art" />
 
 		<input type="hidden" name="text" maxlength="9" value="<?php echo $word; ?>" />
 
-		<fieldset class="letters">
+		<div class="letters fieldset">
 			<?php for ($i = 0; $i<count($posts); $i++): 
 				$post = $posts[$i];
 				$images = get_field('letters', $post->ID);	
@@ -76,9 +76,9 @@ $posts = get_posts(array(
 
 			<?php endfor; ?>
 
-		</fieldset>
+		</div>
 
-		<fieldset class="boards">
+		<div class="boards fieldset">
 			<input type="radio" name="board" id="white" value="white" checked />
 			<label for="white" data-colour="white">
 				White Board
@@ -94,11 +94,11 @@ $posts = get_posts(array(
 				Navy Board
 			</label>
 			
-		</fieldset>
+		</div>
 
 		<p class="instruct">Click on a letter to change it</p>
 
-		<fieldset class="colour">
+		<div class="colour fieldset">
 			<input type="radio" name="bw" id="bw" value="bw" />
 			<label class="radio" for="bw">
 				Black and White
@@ -107,10 +107,12 @@ $posts = get_posts(array(
 			<label class="radio" for="colour">
 				Colour
 			</label>
-		</fieldset>
+		</div>
 
 		<input type="submit" value="Add to Cart" />
 
 	</form>
+
+<?php endif; ?>
 
 </div>
