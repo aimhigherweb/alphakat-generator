@@ -1,8 +1,7 @@
 @import './variables.scss';
 
 .alphakat_generator {
-	background: var(--primary);
-	background: var(--module_background);
+	background: var(--primary) var(--module_background);
 	font-family: var(--font_main);
 	padding: 50px;
 	position: relative;
