@@ -18,6 +18,13 @@ $posts = get_posts(array(
 	'orderby' => 'post_name__in'
 ));
 
+$themes = [
+	"beach",
+	"nature",
+	"architecture",
+	"food"
+]
+
 ?>
 
 <div class="alphakat_generator <?php echo $classes; ?>">
@@ -60,12 +67,52 @@ $posts = get_posts(array(
 				<div data-index="<?php echo $i; ?>" class="lightbox">
 					<button type="button" class="close" onclick="closeLightbox('<?php echo $i; ?>')"><span>Close</span></button>
 					<h2>Click to Select Image</h2>
-					<div class="options">
-						<?php foreach ($images as $image): ?>
+
+					<div class="tags">
+						<legend>Theme: </legend>
+						<ul>
+							<li>
+								<input 
+									type="radio"
+									id="all"
+									value="all"
+									name="theme"
+									checked
+								/>
+								<label for="all" class="radio" data-letter-index="<?php echo $i; ?>">All</label>
+							</li>
+							<?php foreach($themes as $theme): ?>
+								<li>
+									<input 
+										type="radio"
+										id="<?php echo $theme; ?>"
+										value="<?php echo $theme; ?>"
+										name="theme"
+										
+									/>
+									<label
+										for="<?php echo $theme; ?>" 
+										data-letter-index="<?php echo $i; ?>"
+										class="radio"
+									><?php echo $theme; ?></label>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+
+					<div class="options" data-letter-index="<?php echo $i; ?>">
+						<?php foreach ($images as $image): 
+							$tags = get_field('image_category', $image['ID']);
+
+							if(!$tags) {
+								$tags = [];
+							}
+						?>
 						
 							<button 
 								type="button" 
 								onclick="chooseImage('<?php echo $image['ID']; ?>', '<?php echo $image['url']; ?>', '<?php echo $i; ?>')"
+								class="<?php echo join(" ", $tags) ?>"
 							>
 								<img src="<?php echo $image['url']; ?>" />
 							</button>

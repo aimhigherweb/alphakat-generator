@@ -1,6 +1,7 @@
 @import './variables.scss';
 
 .alphakat_generator {
+	background: var(--primary);
 	background: var(--module_background);
 	font-family: var(--font_main);
 	padding: 50px;
@@ -247,6 +248,35 @@
 			display: block;
 		}
 
+		.tags {
+			display: flex;
+			font-size: 18px;
+			margin-bottom: 30px;
+			text-transform: uppercase;
+
+			legend {
+				font-family: var(--font_main);
+				font-size: 1em;
+				font-weight: bold;
+				margin: 0;
+				width: auto;
+			}
+
+			ul {
+				display: flex;
+			}
+
+			ul, li {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			label.radio {
+				font-size: 1em;
+			}
+		}
+
 		h2 {
 			color: var(--primary);
 			font-weight: bold;
@@ -292,6 +322,16 @@
 			button {
 				display: inline;
 				line-height: 1;
+			}
+
+			&.filtered {
+				button {
+					display: none;
+
+					&.visible {
+						display: block;
+					}
+				}
 			}
 		}
 	}

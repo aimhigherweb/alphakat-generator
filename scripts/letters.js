@@ -46,4 +46,28 @@ window.onload = () => {
 			}
 		})
 	})
+
+	document.querySelectorAll('.tags label').forEach(tag => {
+		tag.addEventListener('click', () => {
+			const index = tag.getAttribute('data-letter-index'),
+			theme = tag.htmlFor
+
+			document.querySelectorAll('.options.filtered button.visible').forEach(opt => {
+				opt.classList.remove('visible');
+			})
+		
+			document.querySelector(`.options[data-letter-index='${index}']`).classList.add('filtered')
+		
+		
+			if(theme == 'all') {
+				document.querySelector(`.options.filtered`).classList.remove('filtered')
+			}
+		
+			document.querySelectorAll(`.options.filtered button`).forEach(img => {
+				if(img.classList.contains(theme)) {
+					img.classList.add('visible')
+				}
+			})
+		})
+	})
 }

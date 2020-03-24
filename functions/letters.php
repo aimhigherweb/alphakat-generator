@@ -32,6 +32,7 @@ function prefix_disable_gutenberg($current_status, $post_type) {
 // Add Custom Fields to add Letter images
 if( function_exists('acf_add_local_field_group') ):
 
+	// Add Images to Letters
 	acf_add_local_field_group(array(
 		'key' => 'group_5dd4ff4d79e0c',
 		'title' => 'Add Letters',
@@ -90,6 +91,58 @@ if( function_exists('acf_add_local_field_group') ):
 			8 => 'tags',
 			9 => 'send-trackbacks',
 		),
+		'active' => true,
+		'description' => '',
+	));
+
+	// Add Tags to Images
+	acf_add_local_field_group(array(
+		'key' => 'group_5e72efa1ef992',
+		'title' => 'Image Filters',
+		'fields' => array(
+			array(
+				'key' => 'field_5e72efc7df78f',
+				'label' => 'Image Category',
+				'name' => 'image_category',
+				'type' => 'checkbox',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'beach' => 'Beach',
+					'nature' => 'Nature',
+					'architecture' => 'Architecture',
+					'food' => 'Food',
+				),
+				'allow_custom' => 0,
+				'default_value' => array(
+				),
+				'layout' => 'horizontal',
+				'toggle' => 0,
+				'return_format' => 'value',
+				'save_custom' => 0,
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'attachment',
+					'operator' => '==',
+					'value' => 'image',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
 		'active' => true,
 		'description' => '',
 	));
