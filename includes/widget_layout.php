@@ -74,25 +74,26 @@ $themes = [
 							<li>
 								<input 
 									type="radio"
-									id="all"
+									id="all<?php echo $i; ?>"
 									value="all"
-									name="theme"
+									name="theme<?php echo $i; ?>"
 									checked
 								/>
-								<label for="all" class="radio" data-letter-index="<?php echo $i; ?>">All</label>
+								<label for="all<?php echo $i; ?>" class="radio" data-theme="all" data-letter-index="<?php echo $i; ?>">All</label>
 							</li>
 							<?php foreach($themes as $theme): ?>
 								<li>
 									<input 
 										type="radio"
-										id="<?php echo $theme; ?>"
+										id="<?php echo $theme; ?><?php echo $i; ?>"
 										value="<?php echo $theme; ?>"
-										name="theme"
+										name="theme<?php echo $i; ?>"
 										
 									/>
 									<label
-										for="<?php echo $theme; ?>" 
+										for="<?php echo $theme; ?><?php echo $i; ?>" 
 										data-letter-index="<?php echo $i; ?>"
+										   data-theme="<?php echo $theme; ?>"
 										class="radio"
 									><?php echo $theme; ?></label>
 								</li>

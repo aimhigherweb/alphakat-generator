@@ -50,7 +50,7 @@ window.onload = () => {
 	document.querySelectorAll('.tags label').forEach(tag => {
 		tag.addEventListener('click', () => {
 			const index = tag.getAttribute('data-letter-index'),
-			theme = tag.htmlFor
+			theme = tag.getAttribute('data-theme')
 
 			document.querySelectorAll('.options.filtered button.visible').forEach(opt => {
 				opt.classList.remove('visible');
