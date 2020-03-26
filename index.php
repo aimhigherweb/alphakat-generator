@@ -1,6 +1,9 @@
 <?php
    /*
    Plugin Name: Alphakat Art Creator
+   Plugin URI: https://github.com/aimhigherweb/alphakat-generator
+   Author: AimHigher Web Design
+   Author URI: https://aimhigherweb.design
    */
 
 // Add extra function files
