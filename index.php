@@ -11,10 +11,37 @@
   require_once(__DIR__ . '/functions/customise.php');
 
   //Create Shortcode
-  function alphakat_shortcode() {
+  function alphakat_shortcode($atts = [], $content = null) {
 	ob_start();
 
-	include( plugin_dir_path( __FILE__ ) . 'includes/widget_layout.php');
+	$title = 'Create Your Own Art';
+
+	if($atts !== '' && $atts['title']) {
+		$title = $atts['title'];
+	}
+
+	?>
+
+		<div class="alphakat_generator <?php echo $classes; ?>">
+
+			<form action="/your-design#create" method="post" id="create">
+				<legend><?php echo $title; ?></legend>
+
+				<?php if($content): ?>
+
+					<p class="subtitle"><?php echo $content; ?></p>
+
+				<?php endif; ?>
+
+				<input id="text" type="text" name="text" maxlength="9" value="<?php echo $word; ?>" />
+
+				<input type="submit" value="Go" />
+			</form>
+	<?php
+
+			include( plugin_dir_path( __FILE__ ) . 'includes/widget_layout.php');
+
+		echo '</div>';
 
 	$content = ob_get_clean();
 

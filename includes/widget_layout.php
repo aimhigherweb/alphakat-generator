@@ -1,7 +1,7 @@
 <?php
 
 $word = strtolower($_POST['text']);
-$letters = str_split($word);
+$word_letters = str_split($word);
 
 $classes = '';
 
@@ -12,7 +12,7 @@ if($word == '') {
 
 $posts = get_posts(array(
 	'post_type' => 'letters',
-	'post_name__in' => $letters,
+	'post_name__in' => $word_letters,
 	'post_status' => 'publish',
 	'numberposts' => 9,
 	'orderby' => 'post_name__in'
@@ -22,20 +22,23 @@ $themes = [
 	"beach",
 	"nature",
 	"architecture",
-	"food"
-]
+];
 
-?>
+$letters = array();
 
-<div class="alphakat_generator <?php echo $classes; ?>">
+foreach($word_letters as $letter) {
+	array_filter($posts, function ($post) use ($letter, &$letters) {
+		if($letter == $post->post_name) {
+			array_push($letters, $post);
+			return true;
+		}
+		else {
+			return false;
+		}
+	});
+}
 
-	<form action="/your-design#create" method="post" id="create">
-		<legend>Create Your Own Art</legend>
-
-		<input id="text" type="text" name="text" maxlength="9" value="<?php echo $word; ?>" />
-
-		<input type="submit" value="Go" />
-	</form>
+?>	
 
 <?php if(strpos($_SERVER['REQUEST_URI'], 'your-design')): ?>
 
@@ -44,9 +47,15 @@ $themes = [
 
 		<input type="hidden" name="text" maxlength="9" value="<?php echo $word; ?>" />
 
+		
+
 		<div class="letters fieldset">
-			<?php for ($i = 0; $i<count($posts); $i++): 
-				$post = $posts[$i];
+			<div class="mobile-warning">
+				Your screen isn't wide enough to show your artwork, try rotating your device or using a larger screen.
+			</div>
+
+			<?php for ($i = 0; $i<count($letters); $i++): 
+				$post = $letters[$i];
 				$images = get_field('letters', $post->ID);	
 			?>
 
@@ -162,5 +171,3 @@ $themes = [
 	</form>
 
 <?php endif; ?>
-
-</div>

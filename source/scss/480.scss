@@ -1,0 +1,50 @@
+.alphakat_generator {
+	padding: 50px;
+
+	legend {
+		font-size: 5em;
+	}
+
+	input {
+		&[type="radio"] {
+			& + label {
+				&.radio {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	#create {
+		input {
+			&[type="text"] {
+				font-size: 2em;
+				width: calc(100% - 100px);
+			}
+
+			&[type="submit"] {
+				font-size: 20px;
+				padding: 20px;
+				width: 100px;
+			}
+		}
+	}
+
+	.boards {
+		input {
+			&[type="radio"], input[type="checkbox"] {
+
+				& + label {
+					font-size: 20px;
+					padding: 17px 32px;
+
+					&:hover {
+						letter-spacing: 2px;
+					}
+				}
+			}
+		}
+	}
+
+	
+}

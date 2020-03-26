@@ -1,0 +1,39 @@
+.alphakat_generator {
+	padding: 100px 20px;
+	
+	input {
+		&[type="radio"] {
+			& + label {
+				&.radio {
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+
+
+	#create {
+		input {
+			&[type="text"] {
+				padding: 20px 50px;
+				width: calc(100% - 125px);
+			}
+
+			&[type="submit"] {
+				padding: 20px 50px;
+				width: 125px;
+			}
+		}
+	}
+
+	.fieldset {
+		&.letters {
+			position: static;
+			overflow-x: auto;
+		}
+	}
+
+	.mobile-warning {
+		display: none;
+	}
+}

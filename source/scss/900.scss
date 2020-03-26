@@ -1,0 +1,41 @@
+.alphakat_generator {
+	#create {
+		input {
+			&[type="text"] {
+				width: auto;
+			}
+
+			&[type="submit"] {
+				width: auto;
+			}
+		}
+	}
+
+	.fieldset {
+		&.letters {
+			button {
+				img {
+					$size: 80px;
+
+					height: $size;
+					width: $size;
+				} 
+			}
+		}
+
+		&.boards, &.colour {
+			padding: 50px;
+		}
+	}
+
+	.boards {
+		input {
+			&[type="radio"], input[type="checkbox"] {
+
+				& + label {
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+}

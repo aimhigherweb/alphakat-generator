@@ -1,0 +1,18 @@
+.alphakat_generator {
+	.fieldset {
+		&.letters {
+			button {
+				img {
+					$size: 100px;
+
+					height: $size;
+					width: $size;
+				} 
+			}
+		}
+	}
+
+	#design {
+		max-width: 1200px;
+	}
+}

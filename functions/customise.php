@@ -1,10 +1,19 @@
 <?php
 
+$defaults = array(
+	'primary' => '#FAA862',
+	'secondary' => '#005e62',
+	'font_feature' => "'Rhesmanisa',Helvetica, Arial, Lucida, sans-serif",
+	'font_body' => "'Lato',Helvetica,Arial,Lucida,sans-serif",
+);
+
 
 // Add custom panel for colours and fonts
 add_action('customize_register', 'alphakat_generator_customizer_settings');
 
 function alphakat_generator_customizer_settings($wp_customize) {
+	global $defaults;
+
 	$wp_customize->add_section('alphakat_generator', array(
 		'title' => 'Alphakat Generator',
 		'priority' => 30,
@@ -12,7 +21,7 @@ function alphakat_generator_customizer_settings($wp_customize) {
 
 	//Primary Colour
 	$wp_customize->add_setting('generator_primary_colour', array(
-		'default' => '#FAA862',
+		'default' => $defaults['primary'],
 		'transport' => 'refresh',
 		'type' => 'option',
 	));
@@ -29,7 +38,7 @@ function alphakat_generator_customizer_settings($wp_customize) {
 
 	// Secondary Colour
 	$wp_customize->add_setting('generator_secondary_colour', array(
-		'default' => '#005e62',
+		'default' => $defaults['secondary'],
 		'transport' => 'refresh',
 		'type' => 'option',
 	));
@@ -66,7 +75,7 @@ function alphakat_generator_customizer_settings($wp_customize) {
 	$wp_customize->add_setting( 'alphakat_feature_font', array(
 		'transport' => 'refresh',
 		'type' => 'option',
-		'default' => "'Rhesmanisa',Helvetica, Arial, Lucida, sans-serif",
+		'default' => $defaults['font_feature'],
 		)
 	);
 
@@ -74,14 +83,13 @@ function alphakat_generator_customizer_settings($wp_customize) {
 			'type' => 'text',
 			'description' => 'Select the feature font to be used in the generator (headings etc)',
 			'section' => 'alphakat_generator',
-			
 		)
 	);
 
 	$wp_customize->add_setting( 'alphakat_body_font', array(
 		'transport' => 'refresh',
 		'type' => 'option',
-		'default' => "'Lato',Helvetica,Arial,Lucida,sans-serif",
+		'default' => $defaults['font_body'],
 		)
 	);
 
@@ -89,7 +97,6 @@ function alphakat_generator_customizer_settings($wp_customize) {
 			'type' => 'text',
 			'description' => 'Select the desired font for the rest of the generator',
 			'section' => 'alphakat_generator',
-			
 		)
 	);
 }
@@ -97,16 +104,17 @@ function alphakat_generator_customizer_settings($wp_customize) {
 add_action('wp_head', 'alphakat_generator_customizer_css');
 
 function alphakat_generator_customizer_css() {
+	global $defaults;
 	?>
 
 		<style type="text/css">
 
 			.alphakat_generator {
-				--primary: <?php echo get_option('generator_primary_colour'); ?>;
-				--secondary: <?php echo get_option('generator_secondary_colour'); ?>;
+				--primary: <?php echo get_option('generator_primary_colour', $defaults['primary']); ?>;
+				--secondary: <?php echo get_option('generator_secondary_colour', $defaults['secondary']); ?>;
 				--module_background: url(<?php echo wp_get_attachment_image_src(get_option('generator_background_image'), 'full')[0]; ?>);
-				--font_feature: <?php echo get_option('alphakat_feature_font'); ?>;
-				--font_main: <?php echo get_option('alphakat_body_font'); ?>;
+				--font_feature: <?php echo get_option('alphakat_feature_font', $defaults['font_feature']); ?>;
+				--font_main: <?php echo get_option('alphakat_body_font', $defaults['font_body']); ?>;
 			}
 		
 		</style>
