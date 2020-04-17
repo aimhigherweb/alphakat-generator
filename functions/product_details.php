@@ -18,21 +18,18 @@
 	
 		$images_array = json_decode($images);
 
-		echo '<div class="art-product-image">';
-			foreach ($images_array as $image_id) {
-		
-				$image_attributes = wp_get_attachment_image_src($image_id, 'letter-thumb');
-				$attachment = get_post($image_id);
-				echo '<figure><img src="' . $image_attributes[0] . '" class="my_image" /><figcaption>' . $attachment->post_title . '</figcaption></figure>';
-			}
-		echo '</div>';
+		if($images_array) :
+
+			echo '<div class="art-product-image">';
+				foreach ($images_array as $image_id) {
+			
+					$image_attributes = wp_get_attachment_image_src($image_id, 'letter-thumb');
+					$attachment = get_post($image_id);
+					echo '<figure><img src="' . $image_attributes[0] . '" class="my_image" /><figcaption>' . $attachment->post_title . '</figcaption></figure>';
+				}
+			echo '</div>';
+
+		endif;
 	}
 
-// Remove meta boxes not needed
-	add_action('add_meta_boxes_product', 'remove_meta_boxes_alphakat', 9999);
-
-	function remove_meta_boxes_alphakat() {
-		remove_meta_box('postexcerpt', 'product', 'normal');
-		remove_meta_box('the_content', 'product', 'normal');
-	}
 ?>

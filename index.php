@@ -36,7 +36,14 @@
 
 				<?php endif; ?>
 
-				<input id="text" type="text" name="text" maxlength="9" value="<?php echo $word; ?>" />
+				<input 
+					id="text" 
+					type="text" 
+					name="text" 
+					maxlength="9" 
+					value="<?php echo $word; ?>" 
+					placeholder="Type your word"
+				/>
 
 				<input type="submit" value="Go" />
 			</form>

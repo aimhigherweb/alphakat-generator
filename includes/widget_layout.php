@@ -135,6 +135,8 @@ foreach($word_letters as $letter) {
 
 		</div>
 
+		<p class="instruct">Click on a letter to change it</p>
+
 		<div class="boards fieldset">
 			<input type="radio" name="board" id="white" value="white" checked />
 			<label for="white" data-colour="white">
@@ -152,8 +154,6 @@ foreach($word_letters as $letter) {
 			</label>
 			
 		</div>
-
-		<p class="instruct">Click on a letter to change it</p>
 
 		<div class="colour fieldset">
 			<input type="radio" name="bw" id="bw" value="bw" />

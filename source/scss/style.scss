@@ -123,7 +123,7 @@
 				img {
 					$size: 50px;
 
-					height: $size;
+					height: auto;
 					width: $size;
 					min-width: $size;
 				}
@@ -167,8 +167,9 @@
 			}
 
 			&[type="submit"] {
-				background:	#fff;
+				background:	var(--secondary);
 				border: none;
+				color: #fff;
 				cursor: pointer;
 				font-size: 18px;
 				font-weight: bold;
@@ -176,8 +177,8 @@
 				width: 80px;
 
 				&:active, &:hover, &:focus {
-					background:var(--secondary);
-					color: #fff;
+					background: #fff;
+					color: var(--secondary);
 				}
 			}
 		}
@@ -205,8 +206,10 @@
 		.instruct {
 			font-size: 2em;
 			font-weight: bold;
+			margin-top: 100px;
 			text-align: center;
 			text-transform: uppercase;
+			width: 100%;
 		}
 
 		input[type="submit"] {
