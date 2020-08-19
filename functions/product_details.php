@@ -20,10 +20,18 @@
 
 		if($images_array) :
 
+			if($color == 'bw') {
+				$color = 'Black and White';
+			}
+			else {
+				$color = 'Colour';
+			}
+
+			echo '<dl class="art-product"><dt>Colour/Black and White</dt><dd>' . $color . '</dd><dt>Background</dt><dd>' . $background . '</dd></dl>';
 			echo '<div class="art-product-image">';
 				foreach ($images_array as $image_id) {
 			
-					$image_attributes = wp_get_attachment_image_src($image_id, 'letter-thumb');
+					$image_attributes = wp_get_attachment_image_src($image_id, 'alphakat_letter');
 					$attachment = get_post($image_id);
 					echo '<figure><img src="' . $image_attributes[0] . '" class="my_image" /><figcaption>' . $attachment->post_title . '</figcaption></figure>';
 				}

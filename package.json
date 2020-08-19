@@ -19,8 +19,8 @@
   "homepage": "https://github.com/aimhigherweb/alphakat-generator#readme",
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-zip": "^5.0.1"
+    "gulp-zip": "^5.0.2"
   }
 }

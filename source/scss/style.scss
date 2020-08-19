@@ -158,7 +158,7 @@
 			&[type="text"] {
 				border: 1px solid #fff;
 				flex-grow: 1;
-				font-size: 1.5em;
+				font-size: 1.2em;
 				letter-spacing: 0.2em;
 				line-height: 1.5;
 				padding: 20px;
@@ -252,13 +252,14 @@
 	}
 
 	.lightbox {
-		background: rgba(255, 255, 255, 0.9);
+		background: rgba(255, 255, 255, 1);
 		display: none;
-		padding: 50px;
+		padding: 20px;
 		position: fixed;
-		top: 10vh;
-		left: 20vw;
-		right: 20vw;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		z-index: 50;
 
 		&.open {
@@ -267,6 +268,7 @@
 
 		.tags {
 			display: flex;
+			flex-wrap: wrap;
 			font-size: 18px;
 			margin-bottom: 30px;
 			text-transform: uppercase;
@@ -331,7 +333,7 @@
 
 		.options {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, 150px);
+			grid-template-columns: repeat(auto-fill, 70px);
 			grid-gap: 10px;
 			overflow-y: auto;
 			max-height: 70vh;
@@ -339,7 +341,13 @@
 			button {
 				display: inline;
 				line-height: 1;
+
+				img {
+					width: 100%;
+				}
 			}
+
+			
 
 			&.filtered {
 				button {

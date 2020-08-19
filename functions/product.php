@@ -65,7 +65,7 @@
 			update_post_meta($post_id, '_tax_status', '');
 			update_post_meta($post_id, '_sale_price', '');
 			update_post_meta($post_id, '_product_image_gallery', '');
-			update_post_meta($post_id, '_thumbnail_id', '');
+			update_post_meta($post_id, '_thumbnail_id', '1777');
 
 			$permalink = get_permalink($post_id);
 			wp_redirect('/cart/?add-to-cart=' . $post_id);

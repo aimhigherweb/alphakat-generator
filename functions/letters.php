@@ -1,5 +1,8 @@
 <?php
 
+// Add custom image size for letters
+add_image_size( 'alphakat_letter', 150, 225 );
+
 //Custom post type for letters
 function create_post_type() {
 	register_post_type('letters',

@@ -70,7 +70,7 @@ foreach($word_letters as $letter) {
 					onclick="changeImage('<?php echo $i; ?>')" 
 					data-index="<?php echo $i; ?>"
 				>
-					<img src="<?php echo $images[0]['url']; ?>" />
+					<img src="<?php echo $images[0]['sizes']['alphakat_letter']; ?>" />
 				</button>
 
 				<div data-index="<?php echo $i; ?>" class="lightbox">
@@ -124,7 +124,7 @@ foreach($word_letters as $letter) {
 								onclick="chooseImage('<?php echo $image['ID']; ?>', '<?php echo $image['url']; ?>', '<?php echo $i; ?>')"
 								class="<?php echo join(" ", $tags) ?>"
 							>
-								<img src="<?php echo $image['url']; ?>" />
+								<img src="<?php echo $image['sizes']['alphakat_letter']; ?>" />
 							</button>
 						
 						<?php endforeach; ?>
@@ -150,17 +150,17 @@ foreach($word_letters as $letter) {
 			
 			<input type="radio" name="board" id="navy" value="navy" />
 			<label for="navy" data-colour="navy">
-				Navy Board
+				Blue Board
 			</label>
 			
 		</div>
 
 		<div class="colour fieldset">
-			<input type="radio" name="bw" id="bw" value="bw" />
+			<input type="radio" name="colour" id="bw" value="bw" />
 			<label class="radio" for="bw">
 				Black and White
 			</label>
-			<input type="radio" name="bw" id="colour" value="colour" checked />
+			<input type="radio" name="colour" id="colour" value="colour" checked />
 			<label class="radio" for="colour">
 				Colour
 			</label>

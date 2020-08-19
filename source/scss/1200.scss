@@ -5,7 +5,6 @@
 				img {
 					$size: 100px;
 
-					height: $size;
 					width: $size;
 				} 
 			}
@@ -14,5 +13,10 @@
 
 	#design {
 		max-width: 1200px;
+	}
+
+	.lightbox {
+		left: 20vw;
+		right: 20vw;
 	}
 }

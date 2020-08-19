@@ -17,7 +17,6 @@
 				img {
 					$size: 80px;
 
-					height: $size;
 					width: $size;
 				} 
 			}
@@ -38,4 +37,24 @@
 			}
 		}
 	}
+
+	.lightbox {
+		background: rgba(255, 255, 255, 0.9);
+		padding: 50px;
+		top: 10vh;
+		left: 15vw;
+		right: 15vw;
+		bottom: auto;
+
+		.tags {
+			flex-wrap: nowrap;
+		}
+
+		.options {
+			grid-template-columns: repeat(auto-fill, 100px);
+			max-height: 60vh;
+		}
+	}
+
+	
 }
